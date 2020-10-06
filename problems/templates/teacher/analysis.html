@@ -1,0 +1,43 @@
+{% extends "teacher/base.html" %}
+{% block content %}
+{% load static %}
+<br><br>
+
+<form  class="input-group mb-3"action="" method="post">
+  {% csrf_token %}
+  <input class="border border-primary " placeholder="Enter Name of Student" type="text" name="ab"   value="">
+  <div class="input-group-append">
+    <button type="run" class="btn btn-sm btn-outline-primary border-left-0" name="button"><i class="fas fa-search"></i></button>
+  </div>
+
+</form>
+<br><br><br>
+<table class="table table-hover">
+  <thead>
+    <tr class="table-success">
+      <th scope="col">Name</th>
+      <th scope="col">Total Files Passed</th>
+      <th scope="col">Total Files Failed</th>
+      <th scope="col">Total Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{name}}</th>
+      <td>{{sum}}</td>
+      <td>{{fail}}</td>
+      <td>{{marks}}</td>
+    </tr>
+
+  </tbody>
+  </table>
+  <br><br>
+  <h3>Pass Percentage</h3>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: {{ap}};" aria-valuenow="{{ap}}" aria-valuemin="0" aria-valuemax="100">{{ap}}</div>
+  </div>
+  <br><br><h3>Total Problems Attempted corrected</h3>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: {{ac}};" aria-valuenow="{{ac}}" aria-valuemin="0" aria-valuemax="100">{{ac}}</div>
+  </div>
+{%endblock%}

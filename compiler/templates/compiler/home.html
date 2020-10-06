@@ -1,0 +1,37 @@
+{% extends "compiler/base.html" %}
+{% block content %}
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 ml-5 mr-5 mt-5 mb-5">
+
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group row" id='wow'>
+              <div class="col-sm-7 mr-5 ml-3" >
+                <label for="comment"><h5>Coding Area</h5></label>
+                <textarea id="x" class="form-control" rows="20" cols="200"  name="code_area"  style="border:1px solid grey; letter-spacing: 2px; font-family: 'Lucida Console'; font-size: 20px; " onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">{{code}}</textarea>
+              </div>
+
+              <div class="col-sm-3">
+                <div class="row mb-4">
+                  <label for="comment"><h5>Input</h5></label>
+                  <textarea id="input" class="form-control" rows="7" name="input_area" style="border:1px solid grey;">{{input}}</textarea>
+                </div>
+                <div class="row">
+                  <label for="comment"><h5>Output</h5></label>
+                  <textarea id="output" class="form-control" rows="7" name="output_area" style="border:1px solid grey;" disabled>{{output}}</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-7 ml-3">
+                <button class="btn btn-outline-success float-right" type="submit">Run Your Code </button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+{%endblock%}
